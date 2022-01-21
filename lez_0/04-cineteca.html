@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cineteca</title>
+</head>
+<body>
+    
+    <h1 id="saluto"></h1>
+
+    <div>
+        <ul id="films"></ul>
+    </div>
+
+
+    <script type="text/javascript">
+
+        //Recupero l'elemento html per il benvenuto
+        var elSaluto = document.getElementById('saluto'); //get è un metodo
+        console.log(elSaluto);
+        //inietto delle stringhe nell'elemento saluto e chiedo all'utente di inserire il nome
+        var nomeUtente = prompt('Caro utente, digita il tuo nome');
+        elSaluto.innerHTML = "Ciao" + nomeUtente; //inner è una proprietà degli oggetti HTML e mi eprmette di modificare il contenuto
+    
+        var films = [
+            "Il silenzio degli innocenti",
+            "Io robot",
+            "C'era una volta in America",
+            "Taxi driver",
+            "Giovannona Coscialunga",
+            "Tre uomini e una gamba",
+            "Cenerentola"
+        ];
+
+        var elFilms = document.getElementById('films');
+//       elFilms.innerHTML = '<li>' + films[0] + "</li>" + 
+//                           '<li>' + films[1] + "</li>";
+
+        for(var i=0; i< films.length; i++){
+        elFilms.innerHTML += '<li style= "color:red">' + films[i] + '</li>'; // se metto solo "=" ne vedo solo una perchè sovrascrive la variabile, devo mettere +=
+        }
+
+        
+
+
+    </script>
+</body>
+</html>
