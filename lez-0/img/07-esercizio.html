@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-commerce</title>
+</head>
+<body>
+    <!-- Creare una pagina di resosconto per acquisti online.
+    Aggiungi tramite i campi input il nome dell'item e il prezzo
+    Riepilogo oggetti acquistati, prezzo per ogni voce, totale senza IVA,
+    totale con IVA, prezzo di spedizione e Grand totale (totale iva + spedizione)
+    quando accedo alla pagina viene richiesto il nome utente e stampato
+    un saluto "ciao , Tizio".-->
+
+
+    
+  <h1 id="benvenuto"></h1>
+
+    <label >Item </label><input type="text" id="item"> <br> 
+    <label >Prezzo: </label> <input type="text" id="prezzo"> <br>   
+    <input type="button" value="carica" onclick="registra()">
+   
+    <ul id="listaOgg">  </ul>
+    <div id="resOgg">
+        <div id="totale"> </div>
+        <div id="totaleIvato"> </div>
+        <div id="spedizione"> Spedizione a 6.99$ </div>
+        <div id="grandTotal"> </div>
+    </div>
+
+<script src="js/07-script.js"></script>
+
+</body>
+</html>
