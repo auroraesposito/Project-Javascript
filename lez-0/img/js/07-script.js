@@ -4,15 +4,29 @@ elSaluto.innerHTML = "<h1>Ciao " + nomeUtente + "!</h1>";
 
 var items = [];
 var prezzi = [];
-var totale = 0;
 
 function registra() {
+  document.getElementById('listaOgg').innerHTML = "";
+  var totale = 0;
+  
   items.push(document.getElementById('item').value);
   prezzi.push(document.getElementById('prezzo').value);
 
+  
+    
+ 
   for (var i = 0; i< items.length; i++){
     document.getElementById('listaOgg').innerHTML += "<li>" + items[i] + ": " + prezzi[i] + "$ </li>";
-    totale += prezzi[i];
+    totale += Number(prezzi[i]);
+  
+  var totaleIvato = totale *1.22;
+  var grandTotal = (totaleIvato + 6.99).toFixed(2);
+  document.getElementById('totale').innerHTML = "Totale: $" + totale;
+  document.getElementById('totaleIvato').innerHTML = "Totale IVA inclusa: $" + totaleIvato;
+  document.getElementById('grandTotal').innerHTML = "Il prezzo finale è: $" + grandTotal;
+
+  document.getElementById('item').value = "";
+  document.getElementById('prezzo').value = "";
 }
 }
 // for (var i = 0; i< items.length; i++){
@@ -21,13 +35,8 @@ function registra() {
 //  }
 
 
-document.getElementById('totale').innerHTML = "Totale: $" + totale;
 
-var totaleIvato = totale *1.22;
-document.getElementById('totaleIvato').innerHTML = "Totale IVA inclusa: $" + totaleIvato;
 
-var grandTotal = (totaleIvato + 6.99).toFixed(2);
-document.getElementById('grandTotal').innerHTML = "Il prezzo finale è: $" + grandTotal;
 
 
 
