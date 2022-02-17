@@ -1,0 +1,43 @@
+var foto = document.getElementById('foto');
+var time = document.getElementById('time');
+var infoTime = document.getElementById('infoTime');
+
+var immagini = [
+    'img/1.jpg',
+    'img/2.jpg',
+    'img/3.jpg',
+    'img/4.jpg',
+];
+var contatore = 0;
+
+var tagImg = "<img id='imgMarch'  width=500px heigth=350px src='" +  immagini[contatore] + "'/>"
+
+foto.innerHTML = tagImg;
+
+
+setInterval(() => {
+    ruotaFoto(); 
+}, 2000);
+
+    function ruotaFoto() {
+        
+        if(contatore == immagini.length)
+        contatore = 0;
+        document.getElementById('imgMarch').src = "" + immagini[contatore];
+        contatore++;
+    }
+setInterval(() => {
+    
+    var oraEsatta = new Date();
+    console.log(oraEsatta);
+    var ora = (oraEsatta.getHours()<10?'0': '') + oraEsatta.getHours();
+    var min = (oraEsatta.getMinutes()<10?'0':'') + oraEsatta.getMinutes();
+    var sec = (oraEsatta.getSeconds()<10?'0':'')+ oraEsatta.getSeconds();
+
+    time.innerHTML = ora + ':' +  min  + ':' + sec;
+
+    infoTime.value = ora + ":" + min;
+
+}, 1000);
+
+    
