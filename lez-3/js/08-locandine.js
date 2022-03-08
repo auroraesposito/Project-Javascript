@@ -46,5 +46,45 @@ var films = [
 ]
 
 //prendere oggetto e trasformare in json
-var mioJSON = JSON.stringify(films[0]);
-console.log(mioJSON);
+// var mioJSON = JSON.stringify(films[0]);
+// console.log(mioJSON);
+
+var titolo = document.getElementById('titolo');
+var locandina = document.getElementById('locandina');
+var cast = document.getElementById('cast');
+var durata = document.getElementById('durata');
+var anno = document.getElementById('anno');
+var genere = document.getElementById('genere');
+
+// var prev = document.getElementById('prev');
+// var next = document.getElementById('next');
+
+
+var contatore = 0;
+
+function mostra(indice) {
+    titolo.innerHTML = films[indice].titolo;
+    locandina.src = films[indice].locandina ;
+    cast.innerHTML = films[indice].attori;
+    durata.innerHTML = films[indice].durata;
+    anno.innerHTML = films[indice].anno;
+    genere.innerHTML = films[indice].genere;
+}
+
+
+function prev() {
+    contatore--;
+    if(contatore < 0)
+    contatore = (films.length -1);
+    mostra(contatore);
+    
+}
+
+function next() {
+    contatore++;
+    if(contatore > (films.length -1) )
+    contatore = 0;
+    mostra(contatore);
+}
+
+mostra(contatore);

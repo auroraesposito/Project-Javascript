@@ -26,3 +26,4 @@ function aggiungi() {
 //creare il pulsante per la trasformazione in formato JSON
 //inviare tutto ad una API
 
+

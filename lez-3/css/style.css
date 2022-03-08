@@ -1,0 +1,15 @@
+li{
+    list-style-type: none;
+    position: relative;
+    margin: 2px;
+    padding: 1em;
+    background-color: lightcoral;
+}
+
+
+
+li.done{
+    color: greenyellow;
+    text-decoration: line-through;
+}
+
