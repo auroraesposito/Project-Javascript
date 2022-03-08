@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Twitter <img src="img/Twitter.png" width="30em"></h1>
+    <p>Scrivi il tuo Tweet con 280 caratteri</p>
+    <textarea id="messaggio" rows="5"></textarea>
+
+    <div id="caratteriResidui"></div>
+    <!--i caratteri devono scorrere live- quando arrivo a zero devo bloccare la possibilità di continuare a scrivere-->
+    <br>
+    <button id="btn">Salva Tweet</button>
+    <!--Questo pulsante scrive il tweet nel div sottostante e permette di salvare un file-->
+
+    <!-- Questo viene mostrato solo quando lancio il tweet 
+            Qui posso modificare il codice html-->
+    <h2>Il tuo Tweet</h2>
+    <div id="feed"></div>
+    <div id="map" class="map"></div>
+
+    <script src="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.13.0/build/ol.js"></script>
+
+    <script>
+        var msg = document.querySelector('#messaggio');
+        var feed = document.querySelector('#caratteriResidui');
+
+        var loc = document.getElementById('map');
+         var dc = '';
+         navigator.geolocation.getCurrentPosition(success, fail);
+
+        var longitudine = 0;
+        var latitudine = 0;
+
+
+        //salvo il file
+        document.getElementById("btn").onclick = function () {
+            
+
+
+            var scritta = document.getElementById("messaggio").value;
+            document.getElementById("feed").innerHTML = scritta;
+          
+
+            if ("Blob" in window) {
+                var fileName = prompt("Inserisci il nome del file", "SenzaTitolo.txt");
+                if (fileName) {
+                    var txtToWrite = document.getElementById("messaggio").value;
+
+                    var txtFileAsBlob = new Blob([txtToWrite], {
+                        type: "text/plain"
+                    })
+                    if ("msSaveOrOpenBlob" in navigator) {
+                        navigator.msSaveOrOpenBlob(txtFileAsBlob, fileName);
+                    } else {
+                        var downloadLink = document.createElement("a");
+                        downloadLink.download = fileName;
+                        downloadLink.innerHTML = "Scarica File";
+                        if ("webkitURL" in window) {
+                            downloadLink.href = window.webkitURL.createObjectURL(txtFileAsBlob);
+                        } else {
+                            downloadLink.href = window.URL.createObjectURL(txtFileAsBlob);
+                            downloadLink.onclick = distruggiElemento;
+                            downloadLink.style.display = "none";
+                            document.body.appendChild(downloadLink);
+
+                        }
+                        downloadLink.click();
+
+                    }
+                }
+            } else {
+                alert("Il tuo browser non supporta il formato Blob");
+            }
+        };
+
+        function distruggiElemento(event) {
+            document.body.removeChild(event.target);
+        }
+
+
+        //contatore
+
+        // function contatoreTweet() {
+        //     var tweet = msg.value;
+        // if(tweet.length < 280){
+        //     feed.innerHTML = "stai usando " + (280-tweet.length)  + " caratteri"
+        // } else {
+        //     feed.innerHTML = "Hai finito i caratteri"
+        //     msg.setAttribute("maxlength", 280)
+        // }
+        // }
+
+
+        function contatoreTweet() {
+            var tweet = msg.value;
+            messaggio.maxLength = 280;
+            if (tweet.length < 280) {
+                feed.innerHTML = "stai usando " + (280 - tweet.length) + " caratteri"
+            } else {
+                this.value.lenght < this.maxLength;
+                feed.innerHTML = "Hai finito i caratteri"
+            }
+
+        }
+
+        msg.addEventListener('input', contatoreTweet, false)
+
+        //salvo tweet
+    </script>
+
+
+
+</body>
+
+</html>
