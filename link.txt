@@ -1,0 +1,5 @@
+api key: bdbe0b236b6100cae8693dbfc944018b
+
+api link: api.openweathermap.org/data/2.5/forecast?q={city name}&appid={API key}
+
+api.openweathermap.org/data/2.5/forecast?q=torino&appid=bdbe0b236b6100cae8693dbfc944018b
