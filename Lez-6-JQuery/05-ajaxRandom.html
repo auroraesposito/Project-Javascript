@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <button id="btn">Scarica Dati</button>
+    <div id="demo"></div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <script>
+
+        // $('#btn').click(function () {
+        //     //dichiaro un oggetto con proprietà specifiche (= parametri della chiamata)
+        //     $.ajax({
+        //         url: 'https://randomuser.me/api/?results=15',
+        //         type: 'get',
+        //         dataType: 'json',
+        //         success: function(data){
+        //             console.log(data);
+        //             console.log(data.results[0].name.first);
+        //         },
+        //         error: function() {
+        //             console.log("Qualcosa è andato storto");
+        //         }
+        //     })
+
+        // })
+
+            $(function(){
+                // $.ajax({
+                //     url: 'http://dummy.restapiexample.com/api/v1/employees',
+                //     type: 'get',
+                //     dataType: 'json',
+                //     success: function(data){
+                //         var dipendenti = [];
+                //         //console.log(data);
+                //         $.each(data.data, function(key, value){
+                //             dipendenti.push('<li id ="' + key + '">' + value.employee_name + '</li>');
+                //         })
+                //         console.log(dipendenti)
+
+                //         var demo = $('#demo');
+
+                //         dipendenti.forEach(element => {
+                //             $('#demo').append(element)
+                //         });
+                //     },
+                //     error: function(){
+                //         console.log("Qualcosa non va");
+                //     }
+                // }
+                // )
+
+
+                //SHORTHAND
+                // $.getJSON('http://dummy.restapiexample.com/api/v1/employees', function(data){
+                //     console.log(data);
+                // })
+
+                // $.get('http://dummy.restapiexample.com/api/v1/employees', function(data){
+                //     console.log(data);
+                // })
+
+                // $.put();
+                // $.post();
+                // $.delete();
+
+                //POST
+
+                // $.ajax({
+                //     url: 'http://dummy.restapiexample.com/api/v1/create',
+                //     type: 'post',
+                //     data: {
+                //         id: 10,
+                //         name: "Aurora",
+                //         surname: "Esposito",
+                //         salary: 250000,
+                //     },
+                //     success: function(response) {
+                //         console.log(response);
+                //     }
+
+                // })
+
+                // $.ajax({
+                //     url: 'http://dummy.restapiexample.com/api/v1/delete/2',
+                //     type: 'delete',
+                //     dataType: 'json',
+                //     success: function (response) {
+                //         console.log(response);
+                //     }
+                // })
+
+
+            })
+
+
+
+    </script>
+
+    
+</body>
+</html>
