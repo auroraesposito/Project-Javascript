@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+        // var mioObj = {
+        //     nome: "Pippo",
+        //     cognome: "Rossi",
+        //     eta: 25
+        // };
+
+        // var mioObj2 = function (nome = "pippo"){
+        //     this.nome = nome;
+        //     this.parla = function () {
+        //         return "mi chiamo " + this.nome;
+        //     }
+        // }
+
+            class Dado{
+
+                constructor(lati = 6){
+                    this.lati = lati;
+                }
+
+                lancia(){
+                    return(Math.ceil(this.lati * Math.random()))
+                }
+
+                static descrivi() {
+                    return "il dado non ha un colore definito"
+                }
+            }
+
+
+            const dadoBlu = new Dado();
+            console.log(dadoBlu.lancia());
+
+            const dadoRosso = new Dado(12);
+            console.log(dadoRosso.lancia());
+
+            //creo una copia di un dado già esistente attraverso la proprietà constructor
+            const dadoVerde = new dadoBlu.constructor(20);
+            console.log(dadoVerde.lancia());
+
+    </script>
+
+</body>
+</html>
